@@ -10,8 +10,10 @@ class User(BaseModel):
     email: str
     password: str
 
+
 class Token(BaseModel):
     access_token: str
+
 
 class JWTSettings(BaseModel):
     authjwt_secret_key: str = SECRET_KEY

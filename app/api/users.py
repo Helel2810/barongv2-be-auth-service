@@ -10,7 +10,9 @@ from app.api.models import User, Token, JWTSettings
 def load_config():
     return JWTSettings()
 
+
 users = APIRouter()
+
 
 def authenticate_user(username: str, password: str):
     if username != 'demo@minimals.cc':
