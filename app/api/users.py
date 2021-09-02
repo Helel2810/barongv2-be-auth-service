@@ -24,14 +24,14 @@ def authenticate_user(username: str, password: str):
 
 
 @users.post('/token', response_model=Token)
-async def login_for_access_token(form_data: User, Authorize: AuthJWT = Depends()):
+async def login_for_access_token(form_data: User, authorize: AuthJWT = Depends()):
     user = authenticate_user(form_data.email, form_data.password)
     if not user:
         raise HTTPException(
-            status_code= status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect Username or Passwords"
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect Email or Passwords"
         )
-    access_token = Authorize.create_access_token(subject=user['id'])
-    return {'access_token' : access_token}
+    access_token = authorize.create_access_token(subject=user['id'])
+    return {'access_token': access_token}
 
 
