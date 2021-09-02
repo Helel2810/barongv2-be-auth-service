@@ -1,4 +1,3 @@
-from typing import List
 from fastapi import Header, APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi_jwt_auth import AuthJWT
